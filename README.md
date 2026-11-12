@@ -191,3 +191,7 @@ godot --path . --fixed-fps 60 --audio-driver Dummy --resolution 1280x720 -- --sp
 - This is a prototype.
 - It has one level, from the start cave to the goal after the cold room.
 - Expect rough edges and changes.
+
+## License
+
+This project is under the MIT License. See [LICENSE](LICENSE).
