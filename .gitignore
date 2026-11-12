@@ -1,0 +1,8 @@
+# Godot 4 cache and generated files
+.godot/
+/android/
+*.translation
+
+# Local builds and test screenshots
+/build/
+/shots/

@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/screen_fx.gd" id="1"]
+[ext_resource type="Shader" path="res://scenes/ui/vignette.gdshader" id="2"]
+[ext_resource type="Shader" path="res://scenes/ui/iris.gdshader" id="3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vignette"]
+shader = ExtResource("2")
+shader_parameter/strength = 0.35
+shader_parameter/danger = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iris"]
+shader = ExtResource("3")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 1.5
+
+[node name="ScreenFX" type="CanvasLayer"]
+process_mode = 3
+physics_interpolation_mode = 2
+layer = 50
+script = ExtResource("1")
+
+[node name="Vignette" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_vignette")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Flash" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Iris" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_iris")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Cover" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.055, 0.063, 0.102, 1)

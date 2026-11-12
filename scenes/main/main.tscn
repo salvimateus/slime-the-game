@@ -1,0 +1,45 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/level/background.tscn" id="2"]
+[ext_resource type="Script" path="res://scripts/level/level_builder.gd" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/goo/goo_field.tscn" id="4"]
+[ext_resource type="Script" path="res://scenes/player/slime_body.gd" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="6"]
+[ext_resource type="Script" path="res://scripts/camera/game_camera.gd" id="7"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://scenes/ui/screen_fx.tscn" id="9"]
+[ext_resource type="Script" path="res://scripts/props/prop_layer.gd" id="10"]
+[ext_resource type="Script" path="res://scripts/fx/sparks.gd" id="11"]
+[ext_resource type="Script" path="res://scripts/props/aim_preview.gd" id="12"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Background" parent="." instance=ExtResource("2")]
+
+[node name="Level" type="Node2D" parent="."]
+script = ExtResource("3")
+
+[node name="Props" type="Node2D" parent="."]
+script = ExtResource("10")
+
+[node name="GooField" parent="." instance=ExtResource("4")]
+
+[node name="SlimeBody" type="Node2D" parent="GooField"]
+script = ExtResource("5")
+
+[node name="Player" parent="." instance=ExtResource("6")]
+
+[node name="Sparks" type="Node2D" parent="."]
+script = ExtResource("11")
+
+[node name="AimPreview" type="Node2D" parent="."]
+script = ExtResource("12")
+
+[node name="GameCamera" type="Camera2D" parent="."]
+script = ExtResource("7")
+
+[node name="HUD" parent="." instance=ExtResource("8")]
+
+[node name="ScreenFX" parent="." instance=ExtResource("9")]
